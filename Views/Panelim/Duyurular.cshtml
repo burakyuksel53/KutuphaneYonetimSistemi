@@ -1,0 +1,25 @@
+﻿
+@using MvcKutuphane1.Models.Entity;
+@model List<TBL_DUYURU>
+
+
+@{
+    ViewBag.Title = "Duyurular";
+    Layout = "~/Views/Shared/_LayoutPanelim.cshtml";
+}
+<br />
+<h2>Duyurular</h2>
+<br />
+<table class="table table-bordered">
+<tr>    
+    <th>Kategori</th>    
+    <th>İçerik</th>
+</tr>
+@foreach (var dyr in Model)
+{
+    <tr>        
+        <td>@dyr.KATEGORI</td>
+        <td>@dyr.ICERIK</td>
+    </tr>
+}
+</table>

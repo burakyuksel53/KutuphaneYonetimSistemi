@@ -1,0 +1,52 @@
+﻿@model MvcKutuphane1.Models.Entity.TBLHAREKET
+@{
+    ViewBag.Title = "Odunciade";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Odunc İade Sayfası</h2>
+<div class="col-md-6">
+    @using (Html.BeginForm("OduncGuncelle", "Odunc", FormMethod.Post))
+    {
+        <div style="margin-bottom:15px"></div>
+        <div class="form-group">
+            <div style="margin-bottom:15px">
+                <label>Hareket ID</label>
+                @Html.TextBoxFor(k => k.ID, new { @class = "form-control" })
+            </div>
+            <div style="margin-bottom:15px">
+                <label>Kitap Ad</label>
+                @Html.TextBoxFor(k => k.TBLKITAP.AD, new { @class = "form-control" })
+            </div>
+            <div style="margin-bottom:15px">
+                <label>Üye Ad</label>
+                @Html.TextBoxFor(k => k.TBLUYELER.AD, new { @class = "form-control" })
+            </div>
+            <div style="margin-bottom:15px">
+                <label>Üye Soyad</label>
+                @Html.TextBoxFor(k => k.TBLUYELER.SOYAD, new { @class = "form-control" })
+            </div>
+            <div style="margin-bottom:15px">
+                <label>Personel Ad-Soyad</label>
+                @Html.TextBoxFor(k => k.TBLPERSONEL.PERSONEL, new { @class = "form-control" })
+            </div>
+            <div style="margin-bottom:15px">
+                <label>Alış Tarih</label>
+                @Html.TextBoxFor(k => k.ALISTARIH, "{0: dd.MM.yyyy}", new { @class = "form-control" })
+            </div>
+            <div style="margin-bottom:15px">
+                <label>Alış Tarih</label>
+                @Html.TextBoxFor(k => k.IADETARIH, "{0: dd.MM.yyyy}", new { @class = "form-control" })
+            </div>
+            <div style="margin-bottom:15px">
+                <label>Kitap Teslim Tarih</label>
+                <input type="text" class="form-control" name="UYEGETIRTARIH" value="@DateTime.Now.ToShortDateString()" />
+            </div>
+            <div style="margin-bottom:15px">
+                <label>Geç Gelen Gün Sayısı</label>
+                <input type="text" class="form-control" id="GecInput" value="@ViewBag.dgr" />
+            </div>
+        </div>
+        <button class="btn btn-primary">Kitap Geri Al</button>
+    }
+</div>

@@ -1,0 +1,29 @@
+﻿
+@using MvcKutuphane1.Models.Entity;
+@model List<TBL_DUYURU>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Duyurular</h2>
+
+<table class="table table-striped">
+    <tr>
+        <th>Duyuru ID</th>
+        <th>Kategori</th>                       
+        <th>Sil</th>        
+        <th>İçerik</th>
+    </tr>
+    @foreach (var dyr in Model)
+    {
+        <tr>
+            <td>@dyr.ID</td>
+            <td>@dyr.KATEGORI</td>                                   
+            <td><a href="/Duyuru/DuyuruSil/@dyr.ID" class="btn btn-danger">Sil</a></td>            
+            <td><a class="btn btn-default" href="/Duyuru/DuyuruDetay/@dyr.ID">Görüntüle</a></td>
+        </tr>
+    }
+</table>
+<a href="/Duyuru/YeniDuyuru" class="btn btn-primary">Yeni Duyuru Ekle</a>

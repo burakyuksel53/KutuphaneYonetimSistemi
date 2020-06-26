@@ -1,0 +1,55 @@
+﻿@model MvcKutuphane1.Models.Entity.TBLKITAP
+@{
+    ViewBag.Title = "KitapGetir";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Kitap Bilgileri</h2>
+
+<div class="col-md-6">
+    @using (Html.BeginForm("KitapGuncelle", "Kitap", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <div style="margin-bottom:20px"></div>
+        <div class="form-group">
+            <div style="margin-bottom:20px">
+                <label>Kitap ID</label>
+                @Html.TextBoxFor(k => k.ID, new { @class = "form-control" })
+            </div>
+            <div style="margin-bottom:20px">
+                <label>Kitap Ad</label>
+                @Html.TextBoxFor(k => k.AD, new { @class = "form-control" })
+            </div>
+            <div style="margin-bottom:20px">
+                <label>Kitap Kategori</label>
+                @Html.DropDownListFor(k => k.TBLKATEGORI.ID, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
+            </div>
+            <div style="margin-bottom:20px">
+                <label>Kitap Yazar</label>
+                @Html.DropDownListFor(k => k.TBLYAZAR.ID, (List<SelectListItem>)ViewBag.dgr2, new { @class = "form-control" })
+            </div>
+            <div style="margin-bottom:20px">
+                <label>Kitap Basım Yıl</label>
+                @Html.TextBoxFor(k => k.BASIMYIL, new { @class = "form-control" })
+            </div>
+            <div style="margin-bottom:20px">
+                <label>Kitap Yayınevi</label>
+                @Html.TextBoxFor(k => k.YAYINEVI, new { @class = "form-control" })
+            </div>
+            <div style="margin-bottom:20px">
+                <label>Kitap Sayfa</label>
+                @Html.TextBoxFor(k => k.SAYFA, new { @class = "form-control" })
+            </div>
+            <div style="margin-bottom:20px">
+                <label>Mevcut Resim</label>
+                <img src="@Model.KITAPRESIM" height="150" width="100" />
+            </div>
+            <div class="form-group ">
+                <label for="curl" class="control-label col-lg-2">Yeni Resim</label>
+                <div class="col-lg-10">
+                    <input type="file" class="form-control" name="KITAPRESIM" accept=".jpg,.png,.jpeg" />
+                </div>
+            </div>
+            <button class="btn btn-default">Kaydet</button>
+        </div>
+    }
+</div>

@@ -1,0 +1,45 @@
+﻿@model MvcKutuphane1.Models.Entity.TBLKITAP
+@{
+    ViewBag.Title = "KitapEkle";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Kitap Ekle</h2>
+
+<div class="col-md-6">
+    <form class="form-group" method="post" enctype="multipart/form-data">
+        <div></div>
+        <div style=" margin-top:15px">
+            <label>Kitap Adı</label>
+            @Html.TextBoxFor(k => k.AD, new { @class = "form-control" })
+        </div>
+        <div style=" margin-top:15px">
+            <label>Kitap Kategori</label>
+            @Html.DropDownListFor(k => k.TBLKATEGORI.ID, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
+        </div>
+        <div style=" margin-top:15px">
+            <label>Kitap Yazar</label>
+            @Html.DropDownListFor(k => k.TBLYAZAR.ID, (List<SelectListItem>)ViewBag.dgr2, new { @class = "form-control" })
+        </div>
+        <div style=" margin-top:15px">
+            <label>Kitap Basım Yıl</label>
+            @Html.TextBoxFor(k => k.BASIMYIL, new { @class = "form-control" })
+        </div>
+        <div style=" margin-top:15px">
+            <label>Kitap Yayınevi</label>
+            @Html.TextBoxFor(k => k.YAYINEVI, new { @class = "form-control" })
+        </div>
+        <div style=" margin-top:15px">
+            <label>Kitap Sayfa</label>
+            @Html.TextBoxFor(k => k.SAYFA, new { @class = "form-control" })
+        </div>
+        <div style=" margin-top:15px">
+            <label>Kitap Sayfa</label>
+            <input type="file" class="form-control" name="KITAPRESIM"accept=".jpg,.png,.jpeg" />
+        </div>
+        <div style="margin-top:15px">
+            <button class="btn btn-success">Kaydet</button>
+        </div>
+        <input type="hidden" name="DURUM" value="True" />
+    </form>
+</div>

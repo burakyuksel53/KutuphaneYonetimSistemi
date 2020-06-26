@@ -1,0 +1,18 @@
+﻿@model MvcKutuphane1.Models.Entity.TBLKATEGORI
+@{
+    ViewBag.Title = "KategoriEkle";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Kategori Ekle</h2>
+<div class="col-md-6">
+    <form class="form-group" method="post">
+        <div style="margin-top:15px">
+            <label>Kategori Adı</label>
+            <input type="text" class="form-control" name="AD" required />
+        </div>
+        <div style="margin-top:15px">
+            <button class="btn btn-success">Kaydet</button>
+        </div>
+    </form>
+</div>

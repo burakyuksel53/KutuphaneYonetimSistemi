@@ -1,0 +1,38 @@
+﻿@model MvcKutuphane1.Models.Entity.TBLHAREKET
+@{
+    ViewBag.Title = "OduncVer";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Ödünç Kitap Verme Sayfası</h2>
+
+<div class="col-md-6">
+    <form class="form-group" method="post">
+        <div></div>
+        <div style=" margin-top:15px">
+            <label>Üye Ad - Soyad</label>
+            @Html.DropDownListFor(k => k.TBLUYELER.ID, (List<SelectListItem>)ViewBag.uyead, new { @class = "form-control" })
+        </div>
+        <div style=" margin-top:15px">
+            <label>Kitap Ad</label>
+            @Html.DropDownListFor(k => k.TBLKITAP.ID, (List<SelectListItem>)ViewBag.kitapad, new { @class = "form-control" })
+        </div>
+        <div style=" margin-top:15px">
+            <label>Personel Ad - Soyad</label>
+            @Html.DropDownListFor(k => k.TBLPERSONEL.ID, (List<SelectListItem>)ViewBag.personelad, new { @class = "form-control" })
+        </div>
+        <div style=" margin-top:15px">
+            <label>Kitap Alış Tarihi</label>
+            <input type="text"class="form-control" name="ALISTARIH" value="@DateTime.Now.ToShortDateString()" />
+        </div>
+        <div style=" margin-top:15px">
+            <label>Kitap İade Tarihi</label>
+            <input type="text" class="form-control" name="IADETARIH" value="@DateTime.Now.AddDays(7).ToShortDateString()" />
+        </div>
+
+        <div style="margin-top:15px">
+            <button class="btn btn-success">Ödünç Kitap Ver</button>
+            <input type="hidden" value="false" name="ISLEMDURUM" />
+        </div>
+    </form>
+</div>
